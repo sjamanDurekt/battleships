@@ -1,0 +1,136 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    
+    var arrayOfArrays = new int[][]
+    {
+        // Ottosen
+        new int[] 
+        {
+            1, 0, 0, 
+            0, 0, 0, 
+            0, 0, 0
+        },
+        // Generalen
+        new int[]
+        {
+            0, 0, 0, 
+            0, 0, 0, 
+            0, 0, 0
+        },
+        // Morten Hegseth
+        new int[]
+        {
+            0, 0, 0, 
+            0, 0, 0, 
+            0, 0, 0
+        },
+        // Bjuland
+        new int[]
+        {
+            0, 0, 0, 
+            0, 0, 0, 
+            0, 0, 0
+        },
+        // Maria Celine Lundby
+        new int[]
+        {
+            0, 0, 0, 
+            0, 0, 0, 
+            0, 0, 0
+        },
+        // Hu som vant the voice
+        new int[]
+        {
+            0, 0, 0, 
+            0, 1, 0, 
+            0, 0, 0
+        },
+        // Paulus
+        new int[]
+        {
+            0, 0, 0, 
+            0, 0, 0, 
+            0, 0, 0
+        },
+        // Johan Byremo (20% stilling Flekkerøy Bedehusforsamling)
+        new int[] 
+        {
+            0, 0, 0, 
+            0, 0, 0, 
+            0, 0, 0
+        },
+        // Nils Kåre Bøe
+        new int[]
+        {
+            0, 0, 0, 
+            0, 0, 0, 
+            0, 2, 2
+        },
+        // Han som spele på mugger på UL
+        new int[]
+        {
+            0, 0, 0, 
+            0, 0, 0, 
+            0, 0, 0
+        }
+    };
+    
+    string[] teamNames = new string[]
+    {
+        "Ottosen", 
+        "Generalen", 
+        "Morten Hegseth",
+        "Bjuland",
+        "Maria Celine Lundby",
+        "Hu som vant the voice",
+        "Paulus",
+        "Johan Byremo",
+        "Nils Kåre Bøe",
+        "Han som spele på mugger på UL"
+    };
+}
+
+<div class="row fill-vh d-flex">
+    @for (int i = 0; i < arrayOfArrays.Length; i++)
+    {
+        <div class="col-3 flex-fill p-2 team-container">
+            <div class="row d-flex bg-light p-2 fill-100">
+                <div class="col-10 mb-0" style="max-height: 50px;"><h5 style="margin-bottom: 0; max-height: 5px;">@teamNames[i]</h5></div>
+                <button class="col-1 btn btn-danger justify-content-center align-content-center x-button">
+                </button>
+                @for (int j = 0; j < arrayOfArrays[i].Length; j++)
+                {
+                    switch (arrayOfArrays[i][j])
+                    {
+                        case 1:
+                            <div class="col-4 flex-fill border mt-0 ship-1 p-0" style="min-height: 3rem">
+                                <div class="fill-100 bg-primary mx-0" data-custominfo="True"></div>
+                            </div>
+                            break;
+                            
+                        case 2:
+                            <div class="col-4 flex-fill border mt-0 ship-2 p-0" style="min-height: 3rem">
+                                <div class="fill-100 bg-primary mx-0" data-custominfo="True"></div>
+                            </div>
+                            break;
+                            
+                        default:
+                            <div class="col-4 flex-fill border mt-0 p-0" style="min-height: 3rem">
+                                <div class="fill-100 bg-primary mx-0"></div>
+                            </div>
+                            break;
+                    }
+                }
+            </div>
+        </div>
+    }
+</div>
+
+<div id="overlay">
+    <img src="/images/explosion.gif" height="200px"/>
+</div>
+
+<audio id="myAudio" preload="auto">
+    <source src="/images/destroy.m4a" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
